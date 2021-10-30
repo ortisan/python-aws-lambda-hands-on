@@ -1,4 +1,6 @@
-## Python + AWS Lambda Hands On
+# Python + AWS Lambda Hands On
+
+## Python
 
 - Criada em 1990, por Guido van Rossum.
 - "Bala de prata" (quase).
@@ -10,7 +12,7 @@
   - Web - Django
   - Hack (Mr. Robot)
 
-## Preparação do Ambiente
+### Preparação do Ambiente
 
 Criação do ambiente:
 
@@ -24,12 +26,12 @@ Ativação do ambiente:
 ./hands-on-env/bin/activate
 ```
 
-## PIP
+### PIP
 
 - É o gerenciador de pacotes do Python.
 - Gradle/Maven/NPM do Python
 
-## Instalação das dependências
+#### Instalação das dependências
 
 ```sh
 pip install <NOME DO PACOTE>
@@ -39,12 +41,12 @@ pip install <NOME DO PACOTE>
 pip install -r requirements.txt
 ```
 
-## Exemplos de script
+### Exemplos de script
 
 **exemplos/1-hello-world.py**
 
 
-## Notebooks
+### Notebooks
 
 ```sh
 jupyter notebook notebooks
