@@ -50,5 +50,11 @@ pip install -r requirements.txt
 jupyter notebook notebooks
 ```
 
-Explore os disponíveis:
+1. [Python Básico](https://github.com/ortisan/python-aws-lambda-hands-on/blob/main/notebooks/1-PythonBasico.ipynb)
+1. [Bot Bitcoin](https://github.com/ortisan/python-aws-lambda-hands-on/blob/main/notebooks/2-BotBitcoinNow.ipynb)
+1. [Analise Dados Bitcoin](https://github.com/ortisan/python-aws-lambda-hands-on/blob/main/notebooks/3-AnalyticsBitcoinPrice.ipynb)
+
+## AWS Lambda
+
+to be continued...
 
