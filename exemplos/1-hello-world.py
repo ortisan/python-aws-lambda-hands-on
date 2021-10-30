@@ -3,7 +3,9 @@ from datetime import datetime
 
 # Funcao
 def say_hello():
-  print('hello world', "it is ", datetime.now())
+  if True:
+    print('hello world', "it is ", datetime.now())
+    
 
 # Bloco main
 if __name__ == '__main__':

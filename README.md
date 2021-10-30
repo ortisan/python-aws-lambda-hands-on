@@ -49,3 +49,6 @@ pip install -r requirements.txt
 ```sh
 jupyter notebook notebooks
 ```
+
+Explore os disponíveis:
+
