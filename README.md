@@ -58,9 +58,9 @@ pip install -r requirements.txt
 jupyter notebook notebooks
 ```
 
-1. [Python Básico](https://github.com/ortisan/python-aws-lambda-hands-on/blob/main/notebooks/1-PythonBasico.ipynb)
-1. [Bot Bitcoin](https://github.com/ortisan/python-aws-lambda-hands-on/blob/main/notebooks/2-BotBitcoinNow.ipynb)
-1. [Analise Dados Bitcoin](https://github.com/ortisan/python-aws-lambda-hands-on/blob/main/notebooks/3-AnalyticsBitcoinPrice.ipynb)
+1. [Python Básico](https://github.com/ortisan/python-aws-lambda-hands-on/blob/main/python/notebooks/1-PythonBasico.ipynb)
+1. [Bot Bitcoin](https://github.com/ortisan/python-aws-lambda-hands-on/blob/main/python/notebooks/2-BotBitcoinNow.ipynb)
+1. [Analise Dados Bitcoin](https://github.com/ortisan/python-aws-lambda-hands-on/blob/main/python/notebooks/3-AnalyticsBitcoinPrice.ipynb)
 
 ## AWS Lambda
 
@@ -154,5 +154,3 @@ Podemos criar o projeto utilizando o Serverless Application Model (SAM).
 ```sh
 sam local invoke FunctionExemplo --event events/event.json
 ```
-
-
