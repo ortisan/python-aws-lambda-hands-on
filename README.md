@@ -14,7 +14,8 @@
 
 ### Exemplos de script
 
-**python/exemplos/1-hello-world.py**
+1. **python/exemplos/1-hello-world.py**
+2. **python/exemplos/2.teste-unitario.py**
 
 ### Preparação do Ambiente
 
@@ -25,14 +26,18 @@ cd python
 ```
 
 ```sh
-python3 -m venv ./hands-on-env
+# Versão >= Python 3.3
+python3 -m venv ./hands-on-env -p=<CAMINHO_PYTHON_HOME>/python
+# Versão < Python 3.3
+pip install virtualenv
+virtualenv -p=<CAMINHO_PYTHON_HOME>/python ./hands-on-env
 ```
 
 Ativação do ambiente:
 
 ```sh
-# Linux
-./hands-on-env/bin/activate
+# Linux/Gitbash
+source ./hands-on-env/bin/activate
 # Windows
 hands-on-env/Script/activate.bat
 ```
