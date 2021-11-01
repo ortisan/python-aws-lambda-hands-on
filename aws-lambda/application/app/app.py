@@ -18,6 +18,7 @@ def get_sqs_client():
 
 def lambda_handler(event, context):
     # S3
+    print("### S3 DEMO")
     s3 = get_s3_client()
     response = s3.list_buckets()
     print('Listando buckets:')
@@ -32,6 +33,7 @@ def lambda_handler(event, context):
     print("S3 - config content:", json_content)
     
     # SQS
+    print("### SQS")
     sqs = get_sqs_client()
     # Enviando evento
     response = sqs.send_message(QueueUrl=SQS_QUEUE_URL, MessageBody='world')
