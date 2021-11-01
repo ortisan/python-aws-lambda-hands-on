@@ -12,9 +12,17 @@
   - Web - [Django](https://www.djangoproject.com/)
   - Hack (Mr. Robot)
 
+### Exemplos de script
+
+**python/exemplos/1-hello-world.py**
+
 ### Preparação do Ambiente
 
 Criação do ambiente:
+
+```sh
+cd python
+```
 
 ```sh
 python3 -m venv ./hands-on-env
@@ -43,11 +51,6 @@ pip install <NOME DO PACOTE>
 
 pip install -r requirements.txt
 ```
-
-### Exemplos de script
-
-**exemplos/1-hello-world.py**
-
 
 ### Notebooks
 
@@ -145,9 +148,11 @@ Podemos criar o projeto utilizando o Serverless Application Model (SAM).
   sam init
   # Seguir o passo a passo
   ```
-  
+
 ### Execução local
 
 ```sh
 sam local invoke FunctionExemplo --event events/event.json
 ```
+
+
