@@ -159,3 +159,20 @@ Podemos criar o projeto utilizando o Serverless Application Model (SAM).
 ```sh
 sam local invoke FunctionExemplo --event events/event.json
 ```
+
+### Empacotamento
+
+- Em Dezembro de 2020 a AWS passa a [suportar containers](https://docs.aws.amazon.com/lambda/latest/dg/lambda-releases.html) para a distribuição de Lambdas
+
+Estrutura:
+
+```sh
+FROM public.ecr.aws/lambda/python:3.7
+
+COPY app.py requirements.txt ./
+
+RUN python3.7 -m pip install -r requirements.txt -t .
+
+# Command can be overwritten by providing a different command in the template directly.
+CMD ["app.lambda_handler"]
+```
