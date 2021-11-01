@@ -190,7 +190,7 @@ cd aws-lambda/aplicacao
 docker-compose up --build 
 ```
 
-- Startar a aplicação
+- Start do lambda
 
 ```sh
 python app/app.py 
