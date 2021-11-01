@@ -146,7 +146,20 @@ aws lambda delete-alias --function-name my-function --name alias-name
 
 **Fase Desligamento**:
 
-- Quando a função não recebe requisições por x segundos, a lambda é desligada.
+- Quando a função não recebe requisições por [x segundos](https://acloudguru.com/blog/engineering/how-long-does-aws-lambda-keep-your-idle-functions-around-before-a-cold-start), a lambda é desligada.
+
+### Estrutura
+
+Toda lambda deve possuir uma função handler. Pode ter qualquer nome (de acordo com a linguagem) e precisa ser declarado com dois parâmetros, **event** e [**context**](https://docs.aws.amazon.com/lambda/latest/dg/python-context.html)
+
+```py
+import boto3
+
+def lambda_handler(event, context):
+    # ... logica de negocio ...
+    return "Retorno"
+
+```
 
 ### Criação da Infraestrutura
 
