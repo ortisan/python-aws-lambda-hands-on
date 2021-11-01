@@ -2,14 +2,14 @@
 
 ## Python
 
-- Criada em 1990, por Guido van Rossum.
+- Criada em 1990, por Guido Van Rossum.
 - "Bala de prata" (quase).
 - Muito utilizado em:
-  - Automatizações - Selenium, Beautiful Soap
-  - Bigdata (PySpark)
-  - Data Sciente - Jupyter, Libs estatisticas e analise exploratória
-  - Inteligência Artificial - Libs como SkitLearn, Tensor Flow
-  - Web - Django
+  - Automatizações - [Selenium](https://selenium-python.readthedocs.io/), [Beautiful Soap](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+  - Bigdata - [PySpark](http://spark.apache.org/docs/latest/api/python/)
+  - Data Sciente - [Jupyter](https://jupyter.readthedocs.io/en/latest/), Libs estatisticas e analise exploratória
+  - Machine Learn / Deep Learning - [NLTK](https://www.nltk.org/), [Scikit-Learn](https://scikit-learn.org/stable/), [Tensor Flow](https://www.tensorflow.org/?hl=pt-br), [Keras](https://keras.io/)
+  - Web - [Django](https://www.djangoproject.com/)
   - Hack (Mr. Robot)
 
 ### Preparação do Ambiente
@@ -23,7 +23,10 @@ python3 -m venv ./hands-on-env
 Ativação do ambiente:
 
 ```sh
+# Linux
 ./hands-on-env/bin/activate
+# Windows
+hands-on-env/Script/activate.bat
 ```
 
 ### PIP
@@ -58,5 +61,93 @@ jupyter notebook notebooks
 
 ## AWS Lambda
 
-to be continued...
+- Function as a service (FAAS)
+- Functions são configuradas, carregadas e executadas por uma runtime
+- Configuramos somente a memória. CPU é alocada indiretamente
+- Pagamos pelo tempo de duração da execução da função
+- Uma das peças principais de uma arquitetura Serverless
 
+Pontos principais (Cai nas certificações):
+
+- Tempo máximo de duração 15 min
+- Pacote pode ter até 50 Mb zipado e 250 Mb deszipado
+- 512 Mb storage disponível no /tmp
+- Mínimo 128 MB and máximo 3GB
+
+### Permissões
+
+- AWS Lambda execution role
+
+Exemplo: Assume role policy:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Effect": "Allow",
+    }
+  ]
+}
+```
+
+### [Versões](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
+
+- Cada deploy de uma lambda recebe uma versão sequencial e um ARN.
+- O ARN com sufixo latest aponta para o último deploy
+- Por essa caracteristica de imutabilidade de versão, podemos utilizar apelidos (Alias). Feature muito utilizada em integrações com o API Gateway para os modelos de deploy Blue Green
+
+```sh
+# Criar um apelido
+aws lambda create-alias --function-name my-function --name alias-name --function-version version-number --description " "
+# Alterar o apelido
+aws lambda update-alias --function-name my-function --name alias-name --function-version version-number 
+To delete an alias, use the delete-alias command.
+# Deletar o apelido
+aws lambda delete-alias --function-name my-function --name alias-name 
+```
+
+### [Ciclo de Vida](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html)
+
+![image](images/lambda-lifecycle.png)
+
+**Fase Inicial**:
+
+- Cria ou descongela a função
+- Faz download do código;
+- Configura as variáveis de ambiente;
+- Roda as funções de inicialização - Tudo que não pertença à função **handler**
+
+**Fase Execução**:
+
+- A função **handler** é executada. Só pagamos por esse tempo (Billing execution).
+
+**Fase Desligamento**:
+
+- Quando a função não recebe requisições por x segundos, a lambda é desligada.
+
+### Criação da Infraestrutura
+
+- [Exemplo em terraform de lambda com integrado com o Event Bridge](https://github.com/ortisan/aws-terraform-recipes/tree/main/lambda/lambda-eventbridge)
+
+### Criação do Projeto
+
+Podemos criar o projeto utilizando o Serverless Application Model (SAM).
+
+1. Instalar o [client](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+
+2. Criar a base do projeto:
+  ```sh
+  sam init
+  # Seguir o passo a passo
+  ```
+  
+### Execução local
+
+```sh
+sam local invoke FunctionExemplo --event events/event.json
+```

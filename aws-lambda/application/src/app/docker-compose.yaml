@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  localstack:
+    image: 'localstack/localstack'
+    restart: always
+    environment:
+      - SERVICES=dynamodb,sqs,S3
+    ports:
+      - 4566:4566 # Dynamo
+      - 4571:4571 # S3
+  lambda-exemplo:
+    build: 
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      - ENV=local
