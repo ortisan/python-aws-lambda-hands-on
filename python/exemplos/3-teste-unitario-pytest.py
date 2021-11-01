@@ -12,8 +12,7 @@ class Calculadora(object):
   def divide(self, num1, num2):
     return num1 / num2
 
-# pytest exemplos/2-teste-unitario.py
-# content of test_sysexit.py
+# > pytest exemplos/2-teste-unitario.py
 import pytest
 
 def test_divisao():
