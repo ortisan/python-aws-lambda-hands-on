@@ -114,7 +114,6 @@ Exemplo: Assume role policy:
 aws lambda create-alias --function-name my-function --name alias-name --function-version version-number --description " "
 # Alterar o apelido
 aws lambda update-alias --function-name my-function --name alias-name --function-version version-number 
-To delete an alias, use the delete-alias command.
 # Deletar o apelido
 aws lambda delete-alias --function-name my-function --name alias-name 
 ```
@@ -162,6 +161,7 @@ sam local invoke FunctionExemplo --event events/event.json
 
 ### Empacotamento
 
+- Manualmente. Zipamos toda a pasta dos fontes e também dos pacotes de dependência
 - Em Dezembro de 2020 a AWS passa a [suportar containers](https://docs.aws.amazon.com/lambda/latest/dg/lambda-releases.html) para a distribuição de Lambdas
 
 Estrutura:
