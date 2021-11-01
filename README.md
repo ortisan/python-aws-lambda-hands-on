@@ -176,3 +176,22 @@ RUN python3.7 -m pip install -r requirements.txt -t .
 # Command can be overwritten by providing a different command in the template directly.
 CMD ["app.lambda_handler"]
 ```
+
+## Lib Essencial (Python)
+
+- [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - Lib oficial para comunicação com os serviços AWS
+
+## Executando a DEMO
+
+- Subir o docker-compose
+
+```sh
+cd aws-lambda/aplicacao
+docker-compose up --build 
+```
+
+- Startar a aplicação
+
+```sh
+python app/app.py 
+```

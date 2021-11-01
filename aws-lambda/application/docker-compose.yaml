@@ -5,10 +5,13 @@ services:
     image: 'localstack/localstack'
     restart: always
     environment:
-      - SERVICES=dynamodb,sqs,S3
+      - SERVICES=dynamodb,sqs,s3
     ports:
-      - 4566:4566 # Dynamo
-      - 4571:4571 # S3
+      - "4566-4599:4566-4599"
+      - "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
+    volumes:
+      - ./aws:/docker-entrypoint-initaws.d
+
   lambda-exemplo:
     build: 
       dockerfile: Dockerfile
