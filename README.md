@@ -19,6 +19,19 @@
 
 ### Preparação do Ambiente
 
+Configuração Proxy:
+
+1. Criar o arquivo **pip.ini** no diretório **USER_HOME/pip/**:
+
+```sh
+[global]
+trusted-host = pypi.python.org
+                pypi.org
+                files.pythonhosted.org
+http_proxy = <url http proxy>
+https_proxy = <url https proxy>
+```
+
 Criação do ambiente:
 
 ```sh
@@ -74,9 +87,6 @@ jupyter notebook notebooks
 - Configuramos somente a memória. CPU é alocada indiretamente
 - Pagamos pelo tempo de duração da execução da função
 - Uma das peças principais de uma arquitetura Serverless
-
-Pontos principais (Cai nas certificações):
-
 - Tempo máximo de duração 15 min
 - Pacote pode ter até 50 Mb zipado e 250 Mb deszipado
 - 512 Mb storage disponível no /tmp
