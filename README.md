@@ -2,7 +2,7 @@
 
 ## Python
 
-- Criada em 1990, por Guido Van Rossum.
+- Criada em 1991(primeira release), por Guido Van Rossum.
 - "Bala de prata" (quase).
 - Muito utilizado em:
   - Automatizações - [Selenium](https://selenium-python.readthedocs.io/), [Beautiful Soap](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
