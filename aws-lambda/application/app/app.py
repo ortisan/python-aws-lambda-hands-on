@@ -2,24 +2,18 @@ import boto3
 import json
 from datetime import datetime
 
-AWS_CLIENT_ID=""
-AWS_CLIENT_SECRET=""
 REGION_DEFAULT = "sa-east-1"
 BUCKET_NAME = "bucket-teste"
 ENDPOINT_URL_DEFAULT = "http://localhost:4566"
 SQS_QUEUE_URL = f"{ENDPOINT_URL_DEFAULT}/000000000000/queue-teste"
 
 def get_s3_client():
-    return boto3.client('s3', aws_access_key_id=AWS_CLIENT_ID, aws_secret_access_key=AWS_CLIENT_SECRET, region_name=REGION_DEFAULT,
-                        endpoint_url=ENDPOINT_URL_DEFAULT)
+    return boto3.client('s3', endpoint_url=ENDPOINT_URL_DEFAULT, region_name=REGION_DEFAULT)
 def get_sqs_client():
-    return boto3.client('sqs', aws_access_key_id=AWS_CLIENT_ID, aws_secret_access_key=AWS_CLIENT_SECRET, region_name=REGION_DEFAULT,
-                        endpoint_url=ENDPOINT_URL_DEFAULT)
+    return boto3.client('sqs', endpoint_url=ENDPOINT_URL_DEFAULT, region_name=REGION_DEFAULT)
 
 def get_dynamo_client():
-    return boto3.client('dynamodb', aws_access_key_id=AWS_CLIENT_ID, aws_secret_access_key=AWS_CLIENT_SECRET, region_name='us-east-1',
-                        endpoint_url=ENDPOINT_URL_DEFAULT)
-
+    return boto3.client('dynamodb', endpoint_url=ENDPOINT_URL_DEFAULT, region_name=REGION_DEFAULT)
 
 def lambda_handler(event, context):
     # S3
