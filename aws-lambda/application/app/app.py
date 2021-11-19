@@ -16,6 +16,11 @@ def get_sqs_client():
     return boto3.client('sqs', aws_access_key_id=AWS_CLIENT_ID, aws_secret_access_key=AWS_CLIENT_SECRET, region_name=REGION_DEFAULT,
                         endpoint_url=ENDPOINT_URL_DEFAULT)
 
+def get_dynamo_client():
+    return boto3.client('dynamodb', aws_access_key_id=AWS_CLIENT_ID, aws_secret_access_key=AWS_CLIENT_SECRET, region_name='us-east-1',
+                        endpoint_url=ENDPOINT_URL_DEFAULT)
+
+
 def lambda_handler(event, context):
     # S3
     print("### S3 DEMO")
@@ -39,6 +44,13 @@ def lambda_handler(event, context):
     response = sqs.send_message(QueueUrl=SQS_QUEUE_URL, MessageBody='world')
     print("SQS - message id:", response.get('MessageId'))
     print("SQS - message body:", response.get('MD5OfMessageBody'))
+
+    # DYNAMO
+    print("### DYNAMO DEMO")
+    dynamo = get_dynamo_client()
+    # Enviando evento
+    tables = dynamo.list_tables()
+    print(tables)
 
     return f"Hello {event['name']}"
 
