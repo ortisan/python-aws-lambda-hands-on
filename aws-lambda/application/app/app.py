@@ -11,7 +11,6 @@ def get_s3_client():
     return boto3.client('s3', endpoint_url=ENDPOINT_URL_DEFAULT, region_name=REGION_DEFAULT)
 def get_sqs_client():
     return boto3.client('sqs', endpoint_url=ENDPOINT_URL_DEFAULT, region_name=REGION_DEFAULT)
-
 def get_dynamo_client():
     return boto3.client('dynamodb', endpoint_url=ENDPOINT_URL_DEFAULT, region_name=REGION_DEFAULT)
 
@@ -42,9 +41,33 @@ def lambda_handler(event, context):
     # DYNAMO
     print("### DYNAMO DEMO")
     dynamo = get_dynamo_client()
-    # Enviando evento
+    # Lista de tabelas
     tables = dynamo.list_tables()
-    print(tables)
+    print("Tables: ", tables)
+    # Put Item
+    dict = {
+                'Symbol': {'S', 'BTC'},
+                'Description': {'S', 'Bitcoin'}
+            }
+
+    item_inserted = dynamo.put_item(
+        TableName='StockSymbols',
+        Item = {
+                'Symbol': {'S': 'BTC'},
+                'Description': {'S': 'Bitcoin'}
+            }
+    )
+    print("Item inserted:", item_inserted)
+
+    item_filtered = dynamo.get_item(
+        TableName='StockSymbols',
+        Key = {
+                'Symbol': {'S': 'BTC'},
+                'Description': {'S': 'Bitcoin'}
+            }
+    )
+
+    print("Item filtered:", item_filtered)
 
     return f"Hello {event['name']}"
 
