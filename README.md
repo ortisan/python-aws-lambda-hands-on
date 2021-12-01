@@ -7,7 +7,7 @@
 - Muito utilizado em:
   - Automatizações - [Selenium](https://selenium-python.readthedocs.io/), [Beautiful Soap](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   - Bigdata - [PySpark](http://spark.apache.org/docs/latest/api/python/)
-  - Data Sciente - [Jupyter](https://jupyter.readthedocs.io/en/latest/), Libs estatisticas e analise exploratória
+  - Data Science - [Jupyter](https://jupyter.readthedocs.io/en/latest/), Libs estatisticas e analise exploratória
   - Machine Learning / Deep Learning - [NLTK](https://www.nltk.org/), [Scikit-Learn](https://scikit-learn.org/stable/), [Tensor Flow](https://www.tensorflow.org/?hl=pt-br), [Keras](https://keras.io/)
   - Web - [Django](https://www.djangoproject.com/)
   - Hack (Mr. Robot)
